@@ -1,0 +1,27 @@
+# Kafka binder metrics and health indicator demo
+
+Consumer application with 5 different consumers.
+Two consumers are purposely delaying the processing to simulate a consumer lag.
+
+### Build the proejct
+
+```
+./mvnw clean package
+```
+
+### Run the application
+
+Either use the IDE or `java -jar ...`
+
+### Health Indicator
+
+```
+curl http://localhost:8080/actuator/health/ | jq .
+```
+
+
+### Binder Metrics
+
+```
+curl http://localhost:8080/actuator/metrics/spring.cloud.stream.binder.kafka.offset | jq .
+```
